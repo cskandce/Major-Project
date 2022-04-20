@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <center>
+        <h1>Update Form</h1>
+        <!-- Main {% url 'insert' %} -->
+        {% if key2 %}
+ 
+        <form action="{% url 'update' pk=key2.id%}" method="post">
+            
+            {% csrf_token %}
+            <!-- for security, if  not writtened, data must not be send to database/server-->
+
+            <!-- This insert in {% url 'insert' %} is from urls.py name -->
+            <!-- no. of Fields w.r.t. Model
+              Providing name inside the tag is necessary to send data to server -->
+
+            <table>
+                <tr>
+                    <td>Firstname</td>
+                    <td><input type="text" name="fname" id="" value="{{key2.Firstname}}"></td>
+                </tr>
+                <tr>
+                    <td>Lastname</td>
+                    <td><input type="text" name="lname" id="" value="{{key2.Lastname}}"></td>
+                </tr>
+                <tr>
+                    <td>Email</td>
+                    <td><input type="email" name="email" id="" value="{{key2.Email}}"></td>
+                </tr>
+                <tr>
+                    <td>Contact</td>
+                    <td><input type="tel" name="contact" id="" value="{{key2.Contact}}"></td>
+                </tr>
+
+                <tr>
+                    
+                    <td><input type="submit" value="Update"></td>
+                </tr>
+            </table>
+        </form>
+        {% endif %}
+    </center>
+</body>
+</html>
